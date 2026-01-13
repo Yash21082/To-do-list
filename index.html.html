@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do listt - Yash</title>
+    <style>
+        body{
+            background-color: skyblue;
+            z-index: 1;
+            background-image: url(https://static.vecteezy.com/system/resources/previews/015/882/420/non_2x/modern-minimalist-dark-blue-premium-abstract-background-with-luxury-geometric-dark-shape-exclusive-wallpaper-design-for-website-poster-brochure-presentation-free-vector.jpg);
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            width: 20vw;
+            justify-content: center;
+            
+            margin: auto;
+        }
+        button,input{
+             box-shadow: 10px 10px 1px 0 rgba(3, 3, 3, 0.3);
+            z-index: 2;
+            border-radius: 5px;
+        }
+        button{
+            cursor: pointer;
+           
+        }
+        #btn:hover{
+                
+                transform: scale(1.2);
+                transition: transform 0.9s ease;
+
+        }
+        h2,h4{
+            color: white;
+        }
+        ul{
+            color: white;
+        }
+        .done{
+            text-decoration: line-through;
+            cursor: pointer;
+        }
+        h6{
+            display: flex;
+            
+        }
+        
+    </style>
+
+</head>
+<body>
+          <h4>*Double click to delete</h4>
+        <h4>*Single click to unmark</h4>
+    <div class="container">
+  
+    <h2>List of tasks !!</h2>
+    <input id="txt" type="text" placeholder="Enter the task">
+    <button id="btn" >Add</button>
+    <ul id="list" ></ul>
+    </div>
+    <script>
+        
+       let addbtn = document.getElementById("btn");
+        
+        addbtn.addEventListener("click",()=>{
+            let text = document.getElementById("txt").value;
+             if(text === ""){
+            alert("Please enter the task");
+            return 0;
+        }
+            
+            
+        let list = document.getElementById("list");
+            let li = document.createElement("li");
+            li.innerText = text;
+            li.addEventListener("click",() => {
+                li.classList.toggle("done");
+            })
+            li.addEventListener("dblclick",() => {
+                li.remove();
+            })
+            list.appendChild(li);
+            document.getElementById("txt").value = "";
+        })
+    </script>
+</body>
+</html>
